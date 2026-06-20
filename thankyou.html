@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You | Govindam Physiotherapy</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --indigo:       #3D5A8A;
+            --indigo-dark:  #1C2541;
+            --indigo-mid:   #2A3659;
+            --mint:         #00A896;
+            --mint-light:   #E6F7F5;
+            --white:        #FFFFFF;
+            --off-white:    #F4F7FB;
+            --border:       #DDE4EF;
+            --text-main:    #3A4A5C;
+            --text-muted:   #7A8FA6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--white); color: var(--text-main); font-family: 'Jost', sans-serif; line-height: 1.6; overflow-x: hidden; display: flex; flex-direction: column; min-height: 100vh; }
+
+        .desktop-only { display: inline-flex !important; }
+        .mobile-only { display: none !important; }
+
+        /* NAVBAR */
+        .navbar { display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 72px; background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
+        .logo a { text-decoration: none; display: flex; flex-direction: column; }
+        .logo h1 { color: var(--indigo-mid); font-size: 22px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; line-height: 1.1; }
+        .logo span { font-size: 12px; font-weight: 400; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; margin-top: 1px; }
+        .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; margin: 0; transition: all 0.3s ease; }
+        .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 14px; font-weight: 500; letter-spacing: 0.5px; position: relative; padding-bottom: 4px; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--indigo); }
+        .btn-nav { background: var(--mint); color: var(--white); text-decoration: none; padding: 11px 24px; border-radius: 6px; font-size: 13px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; transition: all 0.3s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; border: none; }
+        .btn-nav:hover { background: var(--indigo); }
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--indigo-dark); font-size: 28px; cursor: pointer; z-index: 101; }
+
+        /* THANK YOU SECTION */
+        .thank-you-section {
+            flex: 1; /* Pushes footer to the bottom */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 5%;
+            text-align: center;
+            background-color: var(--off-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .thank-you-section::before { 
+            content: ''; position: absolute; inset: 0; 
+            background-image: repeating-linear-gradient(-45deg, rgba(0, 168, 150, 0.05), rgba(0, 168, 150, 0.05) 1px, transparent 1px, transparent 30px);
+            z-index: 1;
+        }
+
+        .thank-you-content {
+            position: relative;
+            z-index: 2;
+            background: var(--white);
+            padding: 60px 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(28,37,65,0.08);
+            border: 1px solid var(--border);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--mint-light);
+            color: var(--mint);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto 24px;
+            border: 2px solid rgba(0,168,150,0.2);
+        }
+
+        .thank-you-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: var(--indigo-dark);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .thank-you-content h1 em {
+            font-style: italic;
+            color: var(--mint);
+        }
+
+        .thank-you-content p {
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        .btn-home {
+            background: var(--mint);
+            color: var(--white);
+            text-decoration: none;
+            padding: 16px 36px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+        }
+        
+        .btn-home:hover {
+            background: var(--indigo-dark);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(28,37,65,0.1);
+        }
+
+        /* FOOTER */
+        .footer { background: var(--indigo-dark); padding: 60px 50px 30px; }
+        .footer-logo h2 { font-size: 22px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 1px; }
+        .footer-logo span { font-size: 12px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 2px; display: block; margin-top: 2px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 13px; color: rgba(255,255,255,0.5); }
+
+        /* RESPONSIVE */
+        @media (max-width: 960px) {
+            .desktop-only { display: none !important; }
+            .mobile-only { display: flex !important; }
+            
+            .navbar { padding: 15px 5%; flex-wrap: wrap; height: auto; }
+            .mobile-menu-btn { display: block; }
+            .nav-links { 
+                position: absolute; top: 100%; left: 0; width: 100%; background: var(--white); flex-direction: column; padding: 20px 0; gap: 15px; opacity: 0; pointer-events: none; transform: translateY(-10px); border-bottom: 1px solid var(--border); box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            }
+            .nav-links.active { opacity: 1; pointer-events: auto; transform: translateY(0); }
+            
+            .thank-you-content { padding: 40px 24px; }
+            .thank-you-content h1 { font-size: 32px; }
+            .footer { padding: 40px 24px 20px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <h1>GOVINDAM</h1>
+                <span>Physiotherapy</span>
+            </a>
+        </div>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="treatments.html">Treatments</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li class="mobile-only" style="width: 100%; padding: 10px 20px; justify-content: center;">
+                <a href="index.html" class="btn-nav" style="width: 100%; max-width: 300px; justify-content: center;">Book Appointment &rarr;</a>
+            </li>
+        </ul>
+        
+        <a href="index.html" class="btn-nav desktop-only">Book Appointment &rarr;</a>
+    </nav>
+
+    <section class="thank-you-section">
+        <div class="thank-you-content">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h1>Request <em>Received!</em></h1>
+            <p>Thank you for reaching out to Govindam Physiotherapy. Your details have been successfully submitted securely. Our team will review your information and contact you shortly to confirm your appointment.</p>
+            <a href="index.html" class="btn-home"><i class="fas fa-arrow-left"></i> Return to Homepage</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-logo" style="text-align: center; margin-bottom: 20px;">
+            <h2>Govindam</h2>
+            <span>Physiotherapy</span>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Govindam Physiotherapy Clinic. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu Logic
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if(navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
+
+</body>
+</html>
